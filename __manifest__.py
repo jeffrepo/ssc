@@ -12,7 +12,7 @@
     'category': 'Uncategorized',
     'version': '1.0',
 
-    'depends': ['sale'],
+    'depends': ['base','sale','product','stock','purchase','account'],
 
     'data': [
         'security/produce_groups.xml',
