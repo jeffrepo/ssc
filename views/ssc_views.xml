@@ -1,124 +1,36 @@
 <odoo>
     <data>
-          <record id="view_order_tree_ssc" model="ir.ui.view">
-              <field name="name">ssc.sale.order.tree</field>
-              <field name="model">sale.order</field>
-              <field name="arch" type="xml">
-                  <tree string="Quotation" sample="1"
-                      decoration-info="invoice_status == 'to invoice'"
-                      decoration-muted="state == 'cancel'">
-                      <field name="message_needaction" invisible="1"/>
-                      <field name="name" string="Number" readonly="1" decoration-bf="1"/>
-                      <field name="date_order" string="Order Date" widget="date" optional="show"/>
-                      <field name="commitment_date" optional="hide"/>
-                      <field name="expected_date" optional="hide"/>
-                      <field name="partner_id" readonly="1"/>
-                      <field name="user_id" optional="show" widget="many2one_avatar_user"/>
-                      <field name="activity_ids" widget="list_activity" optional="show"/>
-                      <field name="team_id" optional="hide"/>
-                      <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
-                      <field name="amount_untaxed" sum="Total Tax Excluded" widget="monetary" optional="hide"/>
-                      <field name="amount_tax" sum="Tax Total" widget="monetary" optional="hide"/>
-                      <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
-                      <field name="currency_id" invisible="1"/>
-                      <field name="invoice_status"
-                          decoration-success="invoice_status == 'invoiced'"
-                          decoration-info="invoice_status == 'to invoice'"
-                          decoration-warning="invoice_status == 'upselling'"
-                          widget="badge" optional="show"/>
-                      <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                      <field name="state" invisible="1"/>
-                  </tree>
-              </field>
-          </record>
-
-          <record id="view_in_out_tree_ssc" model="ir.ui.view">
-              <field name="name">ssc.in_out.tree</field>
-              <field name="model">ssc.in_out</field>
-              <field name="arch" type="xml">
-                  <tree string="Object">
-                      <field name="name" string="Reference" decoration-bf="1"/>
-                      <field name="date" string="Date" widget="date" optional="show"/>
-                      <field name="state" string="State" optional="show"/>
-                  </tree>
-              </field>
-          </record>
-
-          <record id="view_ssc_in_out_form" model="ir.ui.view">
-              <field name="name">ssc.in_out.form</field>
-              <field name="model">ssc.in_out</field>
-              <field name="arch" type="xml">
-                  <form string="Object">
-                      <header>
-                          <button name="action_confirm" string="Confirm" class="oe_highlight" type="object" states="draft" />
-                          <button name="action_draft" string="Draft" class="oe_highlight" type="object" states="cancel" />
-                          <button name="action_cancel" string="Cancel" class="oe_highlight" type="object" states="done" />
-                          <button name="action_validate" string="Validate" class="oe_highlight" type="object" states="done" />
-                          <button name="action_duplicate" string="Duplicate" class="oe_highlight" type="object" states="draft" />
-                          <field name="state" widget="statusbar" statusbar_visible="cance,draft,done,validate" />
-                      </header>
-                      <sheet>
-                          <div class="oe_title">
-                              <h1>
-                                  <field name="name"/>
-                              </h1>
-                          </div>
-
-                          <group>
-                              <field name="sale_order_id"/>
-                              <field name="operation_type_id"/>
-                              <field name="date" />
-                              <field name="inbound_picking_id"/>
-                              <field name="outbound_picking_id"/>
-                          </group>
-
-                          <notebook>
-                              <page string="Inbounds">
-                              <field name="inbound_ids" string="Inbounds">
-                                  <tree string="Inbounds" editable="bottom">
-                                      <field name="sequence" widget="handle" />
-                                      <field name="product_id"/>
-                                      <!-- <field name="lot_id"/> -->
-                                      <field name="package_id"/>
-                                      <field name="quantity" sum="Total"/>
-                                      <field name="type"/>
-                                      <field name="class_d"/>
-                                      <field name="fill_with_lot"/>
-                                      <field name="comment"/>
-                                  </tree>
-                              </field>
-                              </page>
-                              <page string="Outbounds">
-                              <field name="outbound_ids">
-                                  <tree string="Outbounds" editable="bottom">
-                                      <field name="sequence" widget="handle" />
-                                      <field name="product_id"/>
-                                      <!-- <field name="lot_id"/> -->
-                                      <field name="package_id"/>
-                                      <field name="quantity" sum="Total"/>
-                                      <field name="type"/>
-                                      <field name="fill_with_lot"/>
-                                      <field name="comment"/>
-                                  </tree>
-                              </field>
-                              </page>
-                          </notebook>
-                            <group name="note_group" col="6" class="mt-2 mt-md-0">
-                                <group colspan="4">
-                                    <field colspan="2" name="note" nolabel="1" placeholder="Notes..."/>
-                                </group>
-                                <div class="clearfix"/>
-                            </group>
-                      </sheet>
-                      <div class="oe_chatter">
-                          <field name="message_follower_ids"/>
-                          <field name="activity_ids"/>
-                          <field name="message_ids"/>
-                      </div>
-                  </form>
-
-              </field>
-          </record>
+        <record id="view_order_list_ssc" model="ir.ui.view">
+            <field name="name">ssc.sale.order.list</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <list string="Quotation" sample="1"
+                    decoration-info="invoice_status == 'to invoice'"
+                    decoration-muted="state == 'cancel'">
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="name" string="Number" readonly="1" decoration-bf="1"/>
+                    <field name="date_order" string="Order Date" widget="date" optional="show"/>
+                    <field name="commitment_date" optional="hide"/>
+                    <field name="expected_date" optional="hide"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="team_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+                    <field name="amount_untaxed" sum="Total Tax Excluded" widget="monetary" optional="hide"/>
+                    <field name="amount_tax" sum="Tax Total" widget="monetary" optional="hide"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="invoice_status"
+                        decoration-success="invoice_status == 'invoiced'"
+                        decoration-info="invoice_status == 'to invoice'"
+                        decoration-warning="invoice_status == 'upselling'"
+                        widget="badge" optional="show"/>
+                    <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <field name="state" invisible="1"/>
+                </list>
+            </field>
+        </record>
 
         <record id="view_sales_order_filter_ssc" model="ir.ui.view">
             <field name="name">sale.order.list.select.ssc</field>
@@ -131,30 +43,17 @@
                     <field name="user_id"/>
                     <field name="team_id" string="Sales Team"/>
                     <field name="order_line" string="Product" filter_domain="[('order_line.product_id', 'ilike', self)]"/>
-                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
                 </search>
             </field>
         </record>
 
-        <record id="view_in_out_filter_ssc" model="ir.ui.view">
-            <field name="name">in_out.list.select.ssc</field>
-            <field name="model">ssc.in_out</field>
-            <field name="arch" type="xml">
-                <search string="Search in out">
-                    <field name="sale_order_id"/>
-                    <field name="name" string="Reference"
-                        filter_domain="[('name', 'ilike', self)]"/>
-                    <field name="date"/>
-                </search>
-            </field>
-        </record>
         <record id="action_sale_order_ssc" model="ir.actions.act_window">
             <field name="name">Quotatios ssc</field>
             <field name="res_model">sale.order</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_order_tree_ssc"/>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_order_list_ssc"/>
             <field name="search_view_id" ref="view_sales_order_filter_ssc"/>
-            <field name="domain"></field>
+            <field name="domain">['|', ('user_id', '=', uid), ('create_uid', '=', uid)]</field>
             <field name="context"></field>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
@@ -165,38 +64,13 @@
             </field>
         </record>
 
-        <record id="action_in_out_ssc" model="ir.actions.act_window">
-            <field name="name">DPC Reworks</field>
-            <field name="res_model">ssc.in_out</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_in_out_tree_ssc"/>
-            <field name="search_view_id" ref="view_in_out_filter_ssc"/>
-            <field name="domain"></field>
-            <field name="context"></field>
-            <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                Creaate an object
-              </p><p>
-
-              </p>
-            </field>
-        </record>
-
         <menuitem id="menu_sale_assistant_ssc"
-            name="Sales DPC"
+            name="Ventas SSC"
             active="True"
             sequence="1000"
             groups="sales_assistant"/>
 
-        <menuitem id="menu_in_out_assistant_ssc"
-            name="DPC Reworks"
-            active="True"
-            sequence="1100"
-            groups="ssc_in_out"/>
-
-        <menuitem id="menu_orders_ssc" name="Orders DPC" parent="menu_sale_assistant_ssc" sequence="10" groups="sales_assistant"/>
-        <menuitem id="menu_in_out_ssc" name="DPC Reworks" parent="menu_in_out_assistant_ssc" sequence="10" groups="ssc_in_out"/>
-        <menuitem id="menu_in_out_object_ssc" name="DPC Reworks" action="action_in_out_ssc" parent="menu_in_out_ssc" sequence="5" groups="ssc_in_out"/>
+        <menuitem id="menu_orders_ssc" name="Ordenes" parent="menu_sale_assistant_ssc" sequence="10" groups="sales_assistant"/>
         <menuitem id="menu_orders_quotations_ssc" name="Quotations dprodce" action="action_sale_order_ssc" parent="menu_orders_ssc" sequence="5" groups="sales_assistant"/>
 
 

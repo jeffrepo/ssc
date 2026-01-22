@@ -9,3 +9,6 @@
 "access_ssc_asistente_purchase.order.line","access.ssc.asistente.purchase.order.line","purchase.model_purchase_order_line","sales_assistant",1,0,0,0
 "access_ssc_asistente_stock_picking","access.ssc.asistente.stock.picking","stock.model_stock_picking","sales_assistant",1,1,0,0
 "access_ssc_asistente_accoutn_move_line","access.ssc.asistente.account.move.line","account.model_account_move_line","sales_assistant",1,0,0,0
+"access_ssc_asistente_sale_order_option","access.ssc.asistente.sale.order.option","sale_management.model_sale_order_option","sales_assistant",1,0,0,0
+"access_ssc_asistente_stock_warehouse_orderpoint","access.ssc.asistente.stock.warehouse.orderpoint","stock.model_stock_warehouse_orderpoint","sales_assistant",1,0,0,0
+"access_ssc_asistente_sale_order_spreadsheet","access.ssc.asistente.sale.order.spreadsheet","spreadsheet_sale_management.model_sale_order_spreadsheet","sales_assistant",1,0,0,0

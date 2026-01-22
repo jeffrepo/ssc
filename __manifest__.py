@@ -12,12 +12,11 @@
     'category': 'Uncategorized',
     'version': '1.0',
 
-    'depends': ['base','sale','product','stock','purchase','account'],
+    'depends': ['base','sale','product','stock','purchase','account','sale_management','spreadsheet_sale_management'],
 
     'data': [
         'security/produce_groups.xml',
         'security/ir.model.access.csv',
         'views/ssc_views.xml',
     ],
-
 }
