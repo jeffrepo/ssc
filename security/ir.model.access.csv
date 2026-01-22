@@ -1,0 +1,11 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_ssc_asistente_sale_order","access.ssc.asistente.sale.order","sale.model_sale_order","sales_assistant",1,1,1,1
+"access_ssc_asistente_sale_order_line","access.ssc.asistente.sale.order.line","sale.model_sale_order_line","sales_assistant",1,1,1,1
+"access_ssc_asistente_product_product","access.ssc.asistente.product.product","product.model_product_product","sales_assistant",1,0,0,0
+"access_ssc_asistente_product_template","access.ssc.asistente.product.template","product.model_product_template","sales_assistant",1,0,0,0
+"access_ssc_asistente_res_partner","access.ssc.asistente.res.partner","base.model_res_partner","sales_assistant",1,0,0,0
+"access_ssc_asistente_stock_move","access.ssc.asistente.stock.move","stock.model_stock_move","sales_assistant",1,1,0,0
+"access_ssc_asistente_purchase.order","access.ssc.asistente.purchase.order","purchase.model_purchase_order","sales_assistant",1,0,0,0
+"access_ssc_asistente_purchase.order.line","access.ssc.asistente.purchase.order.line","purchase.model_purchase_order_line","sales_assistant",1,0,0,0
+"access_ssc_asistente_stock_picking","access.ssc.asistente.stock.picking","stock.model_stock_picking","sales_assistant",1,1,0,0
+"access_ssc_asistente_accoutn_move_line","access.ssc.asistente.account.move.line","account.model_account_move_line","sales_assistant",1,0,0,0

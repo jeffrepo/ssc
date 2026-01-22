@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="res.groups" id="sales_assistant">
+            <field name="name">sales assistant</field>
+        </record>
+
+    </data
